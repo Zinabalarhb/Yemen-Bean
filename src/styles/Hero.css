@@ -1,0 +1,106 @@
+/* =====================
+   Hero Section
+===================== */
+.hero-section {
+  background-image: url("../assets/images/hero.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 750px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  direction: rtl;
+}
+
+.hero-content {
+  color: var(--coffee-brown-dark);
+  padding: 2rem;
+  background-color: rgba(245, 245, 220, 0.55);
+  backdrop-filter: blur(2px);
+  border-radius: 18px;
+  text-align: center;
+}
+
+.hero-title {
+  font-family: "Cairo", sans-serif;
+  font-weight: 700;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.hero-subtitle {
+  font-family: "Cairo", sans-serif;
+  font-weight: 400;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+/* .hero-buttons .btn-primary-hero {
+  background-color: var(--accent);
+  border: none;
+  border-radius: 50px;
+  padding: 0.5rem 1.5rem;
+  font-weight: 600;
+  color: #fff;
+} */
+/* 
+.hero-buttons .btn-primary-hero:hover {
+  background-color: var(--coffee-hover);
+}
+
+.hero-buttons .btn-secondary-hero {
+  background-color: var(--coffee-brown-light);
+  border: none;
+  border-radius: 50px;
+  padding: 0.5rem 1.5rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.hero-buttons .btn-secondary-hero:hover {
+  background-color: var(--coffee-hover);
+} */
+
+.hero-buttons .btn-primary-hero {
+  background-color: #7b2d2b !important;
+  border: none;
+  border-radius: 50px;
+  padding: 0.5rem 1.5rem;
+  font-weight: 600;
+  margin-left: 15px;
+}
+.hero-buttons .btn-primary-hero:hover {
+  background-color: #5c1f1d !important;
+}
+.hero-buttons .btn-secondary-hero {
+  background-color: #d79b5c !important;
+  border: none;
+  border-radius: 50px;
+  padding: 0.5rem 1.5rem;
+  font-weight: 600;
+  color: #3e2723;
+}
+.hero-buttons .btn-secondary-hero:hover {
+  background-color: #c28b52 !important;
+}
+
+/* =====================
+   Responsive
+===================== */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 1.6rem;
+  }
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 1.4rem;
+  }
+  .hero-subtitle {
+    font-size: 0.9rem;
+  }
+}

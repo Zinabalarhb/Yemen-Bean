@@ -1,0 +1,20 @@
+.site-footer {
+  padding: 60px 0;
+  border-top: 1px solid rgba(123,75,58,0.15);
+  text-align: center;
+  background-color: #f5f5dc;
+  font-family: 'Cairo', sans-serif;
+}
+
+.footer-main {
+  margin: 0;
+  color: #3E2723;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.footer-copy {
+  margin: 0;
+  color: #7B2D2B;
+  font-size: 0.85rem;
+}

@@ -1,0 +1,40 @@
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Playfair+Display:wght@500;600&display=swap");
+
+/* =====================
+   Root Variables
+===================== */
+:root {
+  --coffee-brown-dark: #3e2723;
+  --coffee-brown-light: #5d4037;
+  --coffee-beige: #f5f5dc;
+  --coffee-hover: #4b2e2b;
+
+  --section-bg: #f1e7de;
+  --card-bg: #ffffff;
+  --accent: #7a4a2e;
+
+  --font-ar: "Cairo", sans-serif;
+  --font-en: "Playfair Display", serif;
+}
+
+/* =====================
+   Global
+===================== */
+body {
+  font-family: var(--font-ar);
+  background-color: var(--coffee-beige);
+  color: #3b2f2f;
+  margin: 0;
+  direction: rtl;
+  text-align: right;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-ar);
+  color: var(--coffee-brown-dark);
+}
+
+.section {
+  padding: 4rem 0;
+}
+ 
