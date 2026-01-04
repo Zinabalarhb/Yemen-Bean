@@ -34,7 +34,7 @@ export default function HeaderScroll() {
             <Nav.Link href="#bestsellers">الأكثر مبيعًا</Nav.Link>
             <Nav.Link href="#brew">طرق التحضير</Nav.Link>
             <Nav.Link href="#testimonials">آراء العملاء</Nav.Link>
-            <Nav.Link as={Link} to="/productPage">منتجاتنا</Nav.Link>
+            <Nav.Link as={Link} to="/products">منتجاتنا</Nav.Link>
           </Nav>
 
           <div className="d-flex align-items-center gap-2">

@@ -2,13 +2,15 @@ import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-import { CartProvider } from "./context/CartContext";
-
+ 
 import HomePage from "./Pages/HomePage";
 import ProductPage from "./Pages/ProductPage";
 import SearchPage from "./Pages/SearchPage";
 import CartPage from "./Pages/CartPage";
 import AccountPage from "./Pages/AccountPage";
+import CheckoutPage from "./Pages/CheckoutPage";
+
+import AdminDashboard from "./Pages/AdminDashboard";
 
 import Header from "./components/Header";
 
@@ -17,8 +19,7 @@ function App() {
   
 
   return (
-    <CartProvider>
-      <Router>
+       <Router>
         <Header searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
 
         <Routes>
@@ -28,15 +29,19 @@ function App() {
             element={<SearchPage searchTerm={searchTerm} />}
           />
           <Route
-            path="/productPage"
+            path="/products"
             element={<ProductPage searchTerm={searchTerm} />}
           />
           <Route path="/cart" element={<CartPage />} />
           <Route path="/account" element={<AccountPage />} />
+           <Route path="/Checkout" element={<CheckoutPage/>} />
+          <Route path="/admin" element={<AdminDashboard/>} />
+
+
+
         </Routes>
       </Router>
-    </CartProvider>
-  );
+   );
 }
 
 export default App;

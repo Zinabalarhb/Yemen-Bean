@@ -2,6 +2,7 @@ import { useCart } from "../context/CartContext";
  import Footer from "../components/Footer";
 import { Trash2, Plus, Minus } from "lucide-react";
 import "../styles/CartPage.css";
+ import { Link } from "react-router-dom";
 
 export default function CartPage() {
   const { cartItems, addToCart, decreaseQuantity, removeFromCart, clearCart } = useCart();
@@ -33,10 +34,10 @@ export default function CartPage() {
                     <button className="btn btn-sm btn-success" onClick={() => addToCart(item)}>
                       <Plus size={16} />
                     </button>
-                    <button className="btn btn-sm btn-warning" onClick={() => decreaseQuantity(item.cartId)}>
+                    <button className="btn btn-sm btn-warning" onClick={() => decreaseQuantity(item.id)}>
                       <Minus size={16} />
                     </button>
-                    <button className="btn btn-sm btn-danger" onClick={() => removeFromCart(item.cartId)}>
+                    <button className="btn btn-sm btn-danger" onClick={() => removeFromCart(item.id)}>
                       <Trash2 size={16} />
                     </button>
                   </div>
@@ -49,7 +50,9 @@ export default function CartPage() {
               <h5>{total} ر.س</h5>
             </div>
 
-            <button className="btn btn-dark w-100 mb-2">إتمام الشراء</button>
+            <Link to="/CheckoutPage" className="btn btn-dark w-100 mb-2">
+              إتمام الشراء
+            </Link>
             <button className="btn btn-outline-secondary w-100" onClick={clearCart}>
               إفراغ السلة
             </button>

@@ -4,8 +4,8 @@ import App from "./App";
 import "./index.css"; 
 
 // استيراد الـ Providers الصحيحة
-import { SearchProvider } from "./context/SearchContext.jsx";
-import { CartProvider } from "./context/CartContext.jsx"; // تأكدي أن هذا الملف موجود ويصدر CartProvider
+import { SearchProvider } from "./context/SearchContext";
+import { CartProvider } from "./context/CartContext"; 
 
 // استدعاء الـ root
 ReactDOM.createRoot(document.getElementById("root")).render(

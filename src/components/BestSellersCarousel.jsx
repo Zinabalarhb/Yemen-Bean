@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import "../styles/BestSellersCarousel.css";
-import { ShoppingCart } from "lucide-react";
+ import { ChevronLeft, ChevronRight, ShoppingCart } from "lucide-react";
+
 import { useCart } from "../context/CartContext";
 
 import product1 from "../assets/images/product-1.png";
@@ -28,21 +29,21 @@ export default function BestSellersCarousel({ searchTerm = "" }) {
   const filteredProducts = bestSellers.filter((product) =>
     product.name.toLowerCase().includes((searchTerm || "").toLowerCase())
   );
-
+ 
   const scroll = (direction) => {
-    if (carouselRef.current) {
-      const scrollAmount = 220;
-      carouselRef.current.scrollLeft += direction === "right" ? scrollAmount : -scrollAmount;
-    }
-  };
+  if (carouselRef.current) {
+    const scrollAmount = 220; // 
+    carouselRef.current.scrollLeft += direction === "right" ? scrollAmount : -scrollAmount;
+  }
+};
+
 
   return (
     <section id="bestsellers" className="best-sellers-carousel">
       <h2 className="text-center mb-4">الأكثر مبيعًا</h2>
 
       <div className="carousel-container">
-        <button className="nav left" onClick={() => scroll("left")}>&lt;</button>
-
+ 
         <div className="carousel" ref={carouselRef}>
           {filteredProducts.length > 0 ? (
             filteredProducts.map((product) => (
@@ -70,9 +71,16 @@ export default function BestSellersCarousel({ searchTerm = "" }) {
             <p className="text-center">لا توجد منتجات مطابقة 🔍</p>
           )}
         </div>
+        <div className="carousel-nav">
+          <button onClick={() => scroll("left")}>
+            <ChevronLeft size={20} />
+          </button>
+          <button onClick={() => scroll("right")}>
+            <ChevronRight size={20} />
+          </button>
+        </div>
+        </div>
 
-        <button className="nav right" onClick={() => scroll("right")}>&gt;</button>
-      </div>
-    </section>
+       </section>
   );
 }

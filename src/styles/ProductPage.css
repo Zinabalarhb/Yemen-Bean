@@ -51,7 +51,7 @@
 .card-name{
    font-size: 20px;
   font-weight: bold !important;
-  color: #7a5c3e;
+  color: var(--DarkGold);
 
 }
 /* ===============================
@@ -64,7 +64,7 @@
   margin-top: 8px;
   font-size: 15px;
   font-weight: 600;
-  color: #7a5c3e;
+  color:#7B2D2B;
    display: flex;
      align-items: center;
 
@@ -87,7 +87,7 @@
 }
 
 .add-cart-btn:hover {
-  background-color: #5c1f1d;
+  background-color: var( --coffee-brown-dark);
   transform: scale(1.08);
 }
 .add-cart-btn:active {

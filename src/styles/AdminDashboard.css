@@ -1,0 +1,48 @@
+/* ألوان الصفوف */
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: #f9f9f9;
+}
+
+.table-striped tbody tr:hover {
+  background-color: #ffeacc; /* لون لطيف عند المرور */
+}
+
+/* تنسيق أسماء المنتجات الطويلة */
+.table td div {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 140px;
+}
+
+/* حقل البحث */
+input.form-control {
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+/* زر حذف */
+.btn-danger {
+  background-color: #d9534f;
+  border: none;
+  padding: 5px 12px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.btn-danger:hover {
+  background-color: #c9302c;
+  transform: scale(1.05);
+}
+
+/* تنسيق الجدول العام */
+.table td, .table th {
+  vertical-align: middle;
+  padding: 12px 8px;
+  text-align: center;
+}
