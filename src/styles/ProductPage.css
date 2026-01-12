@@ -124,3 +124,21 @@
   opacity: 1;
 }
  
+
+/* ===============================
+   Responsive: Center Products on Mobile
+=============================== */
+@media (max-width: 992px) {
+  /* نجعل كل الأعمدة تتصرف كـ flex وتوسّط محتواها */
+  .products-section .col-sm-12 {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px; /* مسافة بين البطاقات */
+  }
+
+  /* نحدّد عرض البطاقة تلقائيًا لتناسب الجوال */
+  .p-card {
+    width: 90%; /* تقريبًا 90% من عرض الشاشة */
+    max-width: 250px; /* لا تتوسع كثيرًا */
+  }
+}

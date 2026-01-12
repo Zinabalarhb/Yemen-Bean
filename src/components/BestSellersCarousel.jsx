@@ -72,11 +72,11 @@ export default function BestSellersCarousel({ searchTerm = "" }) {
           )}
         </div>
         <div className="carousel-nav">
-          <button onClick={() => scroll("left")}>
-            <ChevronLeft size={20} />
-          </button>
           <button onClick={() => scroll("right")}>
             <ChevronRight size={20} />
+          </button>
+          <button onClick={() => scroll("left")}>
+            <ChevronLeft size={20} />
           </button>
         </div>
         </div>

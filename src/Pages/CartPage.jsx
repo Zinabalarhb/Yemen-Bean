@@ -50,7 +50,7 @@ export default function CartPage() {
               <h5>{total} ر.س</h5>
             </div>
 
-            <Link to="/CheckoutPage" className="btn btn-dark w-100 mb-2">
+            <Link to="/Checkout" className="btn btn-dark w-100 mb-2">
               إتمام الشراء
             </Link>
             <button className="btn btn-outline-secondary w-100" onClick={clearCart}>
