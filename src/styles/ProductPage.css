@@ -1,19 +1,19 @@
 /* ===============================
    Products Section
 =============================== */
-
+/* 
 .products-section {
   padding: 90px 0;
 }
 
  .products-section .row {
   justify-content: center !important;
-}
+} */
 
 /* ===============================
    Product Item
 =============================== */
-
+/* 
 .p-card{
   width: 220px;
   height: 300px;
@@ -29,12 +29,12 @@
 .p-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 20px 40px rgba(62, 39, 35, 0.25);
-}
+} */
 
 /* ===============================
    Image
 =============================== */
-
+/* 
 .p-card img {
   width: 100%;
   height: 100%;
@@ -53,11 +53,11 @@
   font-weight: bold !important;
   color: var(--DarkGold);
 
-}
+} */
 /* ===============================
    Price
 =============================== */
-
+/* 
 .price-cart {
   
   gap: 8px;
@@ -69,10 +69,10 @@
      align-items: center;
 
   justify-content: space-between;
-}
+} */
 
 /* زر السلة */
-.add-cart-btn {
+/* .add-cart-btn {
   width: 34px;
   height: 34px;
   border-radius: 50%;
@@ -84,9 +84,9 @@
   box-shadow: 0 4px 10px rgba(0,0,0,0.15);
     transition: transform 0.25s ease;
 
-}
+} */
 
-.add-cart-btn:hover {
+/* .add-cart-btn:hover {
   background-color: var( --coffee-brown-dark);
   transform: scale(1.08);
 }
@@ -96,14 +96,14 @@
 .add-cart-btn.animate {
   transform: scale(1.2);
   transition: transform 0.4s;
-}
+} */
 
  
 
 /* ===============================
    Overlay Info
 =============================== */
-
+/* 
 .card-overlay {
   position: absolute;
   inset: auto 0 0 0;
@@ -118,7 +118,7 @@
   transition: opacity 0.3s ease;
   backdrop-filter: blur(2px);
 
-}
+} */
 
 .p-card:hover .card-overlay {
   opacity: 1;

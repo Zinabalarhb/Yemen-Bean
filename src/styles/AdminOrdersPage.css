@@ -1,0 +1,77 @@
+.admin-orders-page {
+  font-family: var(--font-ar);
+  padding: 20px;
+}
+
+/* العنوان */
+.admin-orders-page h2 {
+  color: var(--Chocolate-Brown);
+  font-weight: 700;
+  font-size: 26px;
+  margin-bottom: 20px;
+}
+
+/* Inputs */
+.form-control,
+.form-select {
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  padding: 12px 14px;
+  margin-bottom: 12px;
+}
+
+.form-control:focus,
+.form-select:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 0.15rem rgba(122, 74, 46, 0.2);
+}
+
+/* Card-like Table */
+.table {
+  background: var(--card-bg);
+  border-radius: 14px;
+  overflow: hidden;
+  margin-top: 10px;
+}
+
+.table thead {
+  background-color: var(--coffee-brown-dark);
+  color: var(--coffee-beige);
+}
+
+.table th,
+.table td {
+  vertical-align: middle;
+  text-align: center;
+  font-size: 14px;
+}
+
+.table-hover tbody tr:hover {
+  background-color: rgba(122, 74, 46, 0.12);
+}
+
+/* Buttons */
+.btn-danger {
+  background-color: #d9534f;
+  border-radius: 12px;
+  color: #fff;
+}
+
+.btn-danger:hover {
+  background-color: #c9302c;
+}
+
+/* Small selects in table */
+.form-select-sm {
+  border-radius: 10px;
+  padding: 6px 8px;
+  font-size: 13px;
+}
+
+/* Empty state */
+.text-center {
+  color: var(--Chocolate-Brown);
+  font-weight: 600;
+  margin-top: 20px;
+}

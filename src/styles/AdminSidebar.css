@@ -1,0 +1,77 @@
+/* Overlay */
+.sidebar-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0);
+  visibility: hidden;
+  transition: background 0.3s ease, visibility 0.3s ease;
+  z-index: 998;
+}
+
+.sidebar-overlay.open {
+  background: rgba(0, 0, 0, 0.4);
+  visibility: visible;
+}
+
+/* Sidebar */
+.admin-sidebar {
+  width: 240px;
+  height: calc(100vh - 70px - 60px); /* خصم ارتفاع الهيدر الأساسي + AdminHeader */
+  background-color: var(--coffee-brown-light);
+  position: fixed;
+  right: -260px;
+  top: 100px; /* 70px (الهيدر الأساسي) + 60px (AdminHeader) */
+  padding-top: 20px;
+  transition: right 0.3s ease;
+  z-index: 999;
+  direction: rtl;
+}
+
+.admin-sidebar.open {
+  right: 0;
+}
+
+
+
+.admin-sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.admin-sidebar li {
+  margin-bottom: 8px;
+}
+
+.admin-sidebar a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 20px;
+  color: var(--coffee-beige);
+  text-decoration: none;
+  font-size: 15px;
+  transition: 0.3s;
+}
+
+.admin-sidebar a:hover {
+  background-color: var(--coffee-hover);
+  color: var(--coffee-beige);
+}
+
+.admin-sidebar a.active {
+  background-color: var(--accent);
+  color: var(--coffee-beige);
+}
+
+.sidebar-close {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background: var(--accent);
+  color: var(--coffee-beige);
+  border: none;
+  padding: 10px 14px;
+  border-radius: 12px;
+  cursor: pointer;
+}

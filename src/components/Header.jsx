@@ -18,15 +18,16 @@ export default function Header({ searchTerm, setSearchTerm }) {
   }, []);
 
   return (
-    <Navbar expand="lg" sticky="top" className={`header-navbar ${scrolled ? "scrolled" : ""}`}>
+    <Navbar
+      expand="lg"
+      sticky="top"
+      className={`header-navbar ${scrolled ? "scrolled" : ""}`}
+    >
       <Container>
+        <Navbar.Toggle />
 
- {/* زر البرقر */}
-        <Navbar.Toggle /> 
-        {/* الشعار */}
         <Navbar.Brand as={Link} to="/">يمن بن</Navbar.Brand>
 
-        {/* أيقونات الجوال */}
         <div className="mobile-icons d-lg-none">
           <button className="icon-btn" onClick={() => setShowSearch(!showSearch)}>
             <Search size={18} />
@@ -44,8 +45,6 @@ export default function Header({ searchTerm, setSearchTerm }) {
           </Link>
         </div>
 
-       
-
         <Navbar.Collapse>
           <Nav className="mx-auto text-center">
             <Nav.Link as={Link} to="/">الرئيسية</Nav.Link>
@@ -55,7 +54,6 @@ export default function Header({ searchTerm, setSearchTerm }) {
             <Nav.Link as={Link} to="/products">منتجاتنا</Nav.Link>
           </Nav>
 
-          {/* أيقونات الديسكتوب */}
           <div className="desktop-icons d-none d-lg-flex">
             <button className="icon-btn" onClick={() => setShowSearch(!showSearch)}>
               <Search size={20} />
@@ -74,7 +72,6 @@ export default function Header({ searchTerm, setSearchTerm }) {
           </div>
         </Navbar.Collapse>
 
-
         {showSearch && (
           <input
             type="text"
@@ -87,7 +84,6 @@ export default function Header({ searchTerm, setSearchTerm }) {
             }}
           />
         )}
-
       </Container>
     </Navbar>
   );

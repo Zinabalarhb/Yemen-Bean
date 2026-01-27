@@ -1,3 +1,13 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 70px; /* ارتفاع الهيدر */
+  background: var(--coffee-brown-dark);
+  z-index: 1000;
+}
+
 .header-navbar {
   background-color: var(--coffee-beige);
   direction: rtl;

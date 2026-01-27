@@ -2,16 +2,20 @@ import React, { useState } from "react";
 import { useCart } from "../context/CartContext";
 import Footer from "../components/Footer";
 import "../styles/CheckoutPage.css";
+import { createOrder } from "../services/api.admin";
 
 export default function CheckoutPage() {
   const { cartItems, clearCart } = useCart();
+
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
     city: "",
     address: "",
   });
-  const [toast, setToast] = useState(false); // لإظهار رسالة النجاح
+
+  const [toast, setToast] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const total = cartItems.reduce(
     (sum, item) => sum + item.price * item.quantity,
@@ -22,7 +26,7 @@ export default function CheckoutPage() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!formData.name || !formData.phone || !formData.city || !formData.address) {
@@ -30,23 +34,33 @@ export default function CheckoutPage() {
       return;
     }
 
-    // حفظ البيانات في LocalStorage
-    const orders = JSON.parse(localStorage.getItem("orders")) || [];
-    orders.push({
-      customer: { ...formData },
-      cart: cartItems,
-      total: total,
-      createdAt: new Date().toISOString(),
-    });
-    localStorage.setItem("orders", JSON.stringify(orders));
+    const orderData = {
+      customerName: formData.name,
+      phone: formData.phone,
+      city: formData.city,
+      address: formData.address,
+      totalAmount: total,
+      items: cartItems.map((item) => ({
+        productId: item.id,
+        quantity: item.quantity,
+        price: item.price,
+      })),
+    };
 
-    // إظهار Toast
-    setToast(true);
-    clearCart();
-    setFormData({ name: "", phone: "", city: "", address: "" });
+    try {
+      setLoading(true);
+      await createOrder(orderData);
 
-    // إخفاء Toast بعد 3 ثواني
-    setTimeout(() => setToast(false), 3000);
+      setToast(true);
+      clearCart();
+      setFormData({ name: "", phone: "", city: "", address: "" });
+
+      setTimeout(() => setToast(false), 3000);
+    } catch (error) {
+      alert("حدث خطأ أثناء إنشاء الطلب ❌");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -61,6 +75,7 @@ export default function CheckoutPage() {
             {/* بيانات العميل */}
             <div className="col-md-6">
               <h5 className="mb-3">بيانات العميل</h5>
+
               <form onSubmit={handleSubmit} className="checkout-form">
                 <input
                   type="text"
@@ -70,6 +85,7 @@ export default function CheckoutPage() {
                   onChange={handleChange}
                   required
                 />
+
                 <input
                   type="tel"
                   name="phone"
@@ -79,6 +95,7 @@ export default function CheckoutPage() {
                   pattern="[0-9]{9,15}"
                   required
                 />
+
                 <input
                   type="text"
                   name="city"
@@ -87,6 +104,7 @@ export default function CheckoutPage() {
                   onChange={handleChange}
                   required
                 />
+
                 <textarea
                   name="address"
                   placeholder="العنوان بالتفصيل"
@@ -98,9 +116,9 @@ export default function CheckoutPage() {
                 <button
                   type="submit"
                   className="btn btn-dark w-100 mt-3"
-                  disabled={cartItems.length === 0}
+                  disabled={cartItems.length === 0 || loading}
                 >
-                  تأكيد الطلب
+                  {loading ? "جاري تأكيد الطلب..." : "تأكيد الطلب"}
                 </button>
               </form>
             </div>
@@ -108,15 +126,19 @@ export default function CheckoutPage() {
             {/* ملخص الطلب */}
             <div className="col-md-6">
               <h5 className="mb-3">ملخص الطلب</h5>
+
               <div className="order-summary">
                 {cartItems.map((item) => (
                   <div key={item.cartId} className="summary-item">
-                    <span>{item.name} × {item.quantity}</span>
+                    <span>
+                      {item.name} × {item.quantity}
+                    </span>
                     <span>{item.price * item.quantity} ر.س</span>
                   </div>
                 ))}
 
                 <hr />
+
                 <div className="summary-total">
                   <strong>الإجمالي</strong>
                   <strong>{total} ر.س</strong>
@@ -126,7 +148,7 @@ export default function CheckoutPage() {
           </div>
         )}
 
-        {/* Toast رسالة النجاح */}
+        {/* Toast */}
         {toast && (
           <div className="toast-success">
             تم تأكيد الطلب بنجاح ☕

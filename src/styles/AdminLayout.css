@@ -1,0 +1,18 @@
+
+
+
+.admin-layout {
+  font-family: var(--font-ar);
+}
+
+/* هذا هو الحل: مساحة فوق AdminLayout */
+.admin-body {
+  display: flex;
+  padding-top: 70px; /* أو 60px حسب ارتفاع الهيدر الأساسي */
+}
+
+/* محتوى الصفحة */
+.admin-content {
+  width: 100%;
+  padding: 20px;
+}

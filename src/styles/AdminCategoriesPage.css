@@ -1,0 +1,114 @@
+.admin-categories-page {
+  font-family: var(--font-ar);
+  padding: 20px;
+}
+
+/* العنوان + زر الإضافة */
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.page-header h2 {
+  color: var(--Chocolate-Brown);
+  font-weight: 700;
+  font-size: 26px;
+}
+
+.page-header .actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+
+
+.page-header .btn:hover {
+  background-color: var(--Chocolat-Cosmos);
+}
+
+/* Card */
+.card {
+  background-color: var(--card-bg);
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+  border: none;
+}
+
+.card-body {
+  padding: 22px;
+}
+
+/* Inputs */
+.form-control {
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  padding: 12px 14px;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 0.15rem rgba(122, 74, 46, 0.2);
+}
+
+/* Buttons */
+.btn-dark {
+  background-color: var(--accent);
+  border-radius: 12px;
+  color: #fff;
+  font-weight: bold;
+}
+
+.btn-dark:hover {
+  background-color: var(--coffee-brown-light);
+}
+
+.btn-danger {
+  background-color: #d9534f;
+  border-radius: 12px;
+  color: #fff;
+}
+
+.btn-danger:hover {
+  background-color: #c9302c;
+}
+
+/* Table */
+.table {
+  background: var(--card-bg);
+  border-radius: 14px;
+  overflow: hidden;
+  margin-top: 10px;
+}
+
+.table thead {
+  background-color: var(--coffee-brown-dark);
+  color: var(--coffee-beige);
+}
+
+.table th,
+.table td {
+  vertical-align: middle;
+  text-align: center;
+  font-size: 14px;
+}
+
+.table-hover tbody tr:hover {
+  background-color: rgba(122, 74, 46, 0.12);
+}
+
+/* Buttons داخل الجدول */
+.table .btn {
+  padding: 6px 10px;
+  font-size: 13px;
+  margin: 0 4px;
+}
+
+/* Empty state */
+.text-center {
+  color: var(--Chocolate-Brown);
+  font-weight: 600;
+}

@@ -29,7 +29,7 @@ export default function Hero() {
           </p>
 
           <div className="hero-buttons">
-            <Button as={Link} to="/productPage" className="btn-primary-hero">
+            <Button as={Link} to="/ProductPage" className="btn-primary-hero">
               تسوق الآن
             </Button>
             <Button as={Link} to="/about" className="btn-secondary-hero">

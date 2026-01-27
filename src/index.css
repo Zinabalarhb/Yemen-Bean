@@ -16,6 +16,7 @@
 --DarkGold:#AA6633;
   --font-ar: "Cairo", sans-serif;
   --font-en: "Playfair Display", serif;
+  
 }
 
 /* =====================
@@ -28,8 +29,10 @@ body {
   margin: 0;
   direction: rtl;
   text-align: right;
-}
+ 
+ }
 
+ 
 h1, h2, h3 {
   font-family: var(--font-ar);
   color: var(--coffee-brown-dark);

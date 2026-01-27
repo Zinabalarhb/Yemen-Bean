@@ -1,0 +1,79 @@
+/* .admin-container {
+  font-family: var(--font-ar);
+   min-height: 100vh;
+    padding: 100px 20px 40px 20px; 
+
+}
+
+.admin-container h2 {
+  color: var(--Chocolate-Brown);
+ }
+ 
+
+.btn-add {
+  background-color: var(--DarkGold);
+  color: var(--coffee-beige);
+  font-weight: bold;
+  border: none;
+}
+
+.btn-add:hover {
+  background-color: var(--Chocolat-Cosmos);
+}
+
+.product-card {
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.product-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.product-name {
+  font-family: var(--font-en);
+  font-size: 1.1rem;
+  color: var(--Chocolate-Brown);
+  margin-bottom: 5px;
+}
+
+.product-price {
+  font-weight: bold;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+
+.product-actions button {
+  width: 48%;
+}
+
+.btn-edit {
+  background-color: var(--accent);
+  color: #fff;
+}
+
+.btn-edit:hover {
+  background-color: var(--coffee-brown-light);
+}
+
+.btn-delete {
+  background-color: #d9534f;
+  color: #fff;
+}
+
+.btn-delete:hover {
+  background-color: #c9302c;
+} */

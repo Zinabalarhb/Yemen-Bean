@@ -1,48 +1,44 @@
 import React, { useEffect, useState } from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Spinner } from "react-bootstrap";
 import { ShoppingCart } from "lucide-react";
 import { useCart } from "../context/CartContext";
-
-import product1 from "../assets/images/product-1.png";
-import product2 from "../assets/images/product-4.png";
-import product3 from "../assets/images/product-8.png";
-import product4 from "../assets/images/product-9.png";
-import product5 from "../assets/images/product-6.png";
-import product6 from "../assets/images/product-7.png";
+import { searchProducts } from "../services/api.public"; // ✅ API search
 
 export default function SearchPage({ searchTerm }) {
   const { addToCart } = useCart();
-  const [results, setResults] = useState([]);
 
-  const PRODUCTS = [
-    { id: 1, name: "قهوة يمنية مختصة", price: 120, image: product1 },
-    { id: 2, name: "قهوة سادة", price: 95, image: product2 },
-    { id: 3, name: "قهوة بالهيل", price: 130, image: product3 },
-    { id: 4, name: "قهوة عربية تقليدية", price: 110, image: product4 },
-    { id: 5, name: "كابتشينو", price: 140, image: product5 },
-    { id: 6, name: "كابتشينو", price: 140, image: product6 },
-  ];
+  const [results, setResults] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
   useEffect(() => {
-    const term = searchTerm.trim().toLowerCase();
+    const term = searchTerm?.trim();
 
     if (!term) {
       setResults([]);
       return;
     }
 
-    setResults(
-      PRODUCTS.filter((p) =>
-        p.name.toLowerCase().includes(term)
-      )
-    );
+    const fetchResults = async () => {
+      try {
+        setLoading(true);
+        setError("");
+
+        const data = await searchProducts(term);
+        setResults(data);
+      } catch (err) {
+        setError("حدث خطأ أثناء البحث");
+        console.error(err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchResults();
   }, [searchTerm]);
 
   return (
-    <section
-      className="products-section"
-      style={{ minHeight: "100vh" }}
-    >
+    <section className="products-section" style={{ minHeight: "100vh" }}>
       <Container>
         <h2 className="text-center mb-5">
           {searchTerm
@@ -50,13 +46,25 @@ export default function SearchPage({ searchTerm }) {
             : "جميع المنتجات"}
         </h2>
 
+        {/* Loading */}
+        {loading && (
+          <div className="text-center my-5">
+            <Spinner animation="border" />
+          </div>
+        )}
+
+        {/* Error */}
+        {error && (
+          <p className="text-center text-danger fs-5">{error}</p>
+        )}
+
         <Row className="g-4">
-          {results.length > 0 ? (
+          {!loading && results.length > 0 ? (
             results.map((product) => (
               <Col key={product.id} lg={4} md={6} sm={12}>
                 <div className="p-card">
                   <img
-                    src={product.image}
+                    src={product.imageUrl}
                     alt={product.name}
                     className="product-img"
                   />
@@ -81,9 +89,11 @@ export default function SearchPage({ searchTerm }) {
               </Col>
             ))
           ) : (
-            <p className="text-center fs-5 mt-4">
-              لا توجد نتائج مطابقة 🔍
-            </p>
+            !loading && (
+              <p className="text-center fs-5 mt-4">
+                لا توجد نتائج مطابقة 🔍
+              </p>
+            )
           )}
         </Row>
       </Container>

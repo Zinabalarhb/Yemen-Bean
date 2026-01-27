@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import "../styles/ProductPage.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Row, Col, Container } from "react-bootstrap";
 import { ShoppingCart } from "lucide-react";
 import { useCart } from "../context/CartContext";
-import { getProducts } from "../services/api";
+import { getProducts } from "../services/api.public";
 import Footer from "../components/Footer";
 import { useSearch } from "../context/SearchContext";
 
@@ -17,16 +17,34 @@ export default function ProductPage() {
   const [error, setError] = useState("");
   const [animatingId, setAnimatingId] = useState(null);
 
+  /* ===============================
+     Load Products
+  ================================ */
   useEffect(() => {
-    getProducts()
-      .then((data) => setProducts(data))
-      .catch(() => setError("حدث خطأ أثناء تحميل المنتجات"))
-      .finally(() => setLoading(false));
+    const loadProducts = async () => {
+      try {
+        const data = await getProducts();
+        setProducts(data);
+      } catch (err) {
+        setError("حدث خطأ أثناء تحميل المنتجات");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadProducts();
   }, []);
 
-  const filteredProducts = products.filter((product) =>
-    product.name.toLowerCase().includes((searchTerm || "").toLowerCase())
-  );
+  /* ===============================
+     Search Filter (Optimized)
+  ================================ */
+  const filteredProducts = useMemo(() => {
+    if (!searchTerm) return products;
+
+    return products.filter(product =>
+      product.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+  }, [products, searchTerm]);
 
   return (
     <>
@@ -37,9 +55,7 @@ export default function ProductPage() {
       >
         <Container>
           <h2 className="text-center mb-5">
-            {searchTerm
-              ? `نتائج البحث عن "${searchTerm}"`
-              : "منتجاتنا"}
+            {searchTerm ? `نتائج البحث عن "${searchTerm}"` : "منتجاتنا"}
           </h2>
 
           {/* Loading */}
@@ -56,7 +72,7 @@ export default function ProductPage() {
           {!loading && !error && (
             <Row className="g-4 justify-content-center">
               {filteredProducts.length > 0 ? (
-                filteredProducts.map((product) => (
+                filteredProducts.map(product => (
                   <Col
                     key={product.id}
                     lg={4}
@@ -66,7 +82,7 @@ export default function ProductPage() {
                   >
                     <div className="p-card">
                       <img
-                        src={product.imageUrl}
+                          src={`https://localhost:7189${product.imageUrl}`}
                         alt={product.name}
                         className="product-img"
                       />

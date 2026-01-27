@@ -13,9 +13,7 @@
 /* ===============================
    General Layout
 =============================== */
-body {
-  background-color: var(--beige);
-}
+ 
 
 .container {
   max-width: 1200px;
